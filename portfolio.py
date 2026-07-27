@@ -481,15 +481,24 @@ with about_tab:
                 at LaSalle Campus University Ramon Llull.
                 </p>
                 <div style="margin-top: 1rem;">
-                    <a href="assets/CV_Duna.pdf" download class="social-btn" style="text-decoration: none; display: inline-flex;">
-                        Download my CV
-                    </a>
+                    <!-- Download handled by Streamlit button below -->
                 </div>
 
                 """
             ),
             unsafe_allow_html=True
         )
+
+    pdf_path = Path("assets/CV_Duna.pdf")
+    if pdf_path.exists():
+        st.download_button(
+            label="Download my CV",
+            data=pdf_path.read_bytes(),
+            file_name="CV_Duna.pdf",
+            mime="application/pdf",
+        )
+    else:
+        st.write("CV not found: assets/CV_Duna.pdf")
 
     with col2:
         render_profile_photo()
