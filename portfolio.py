@@ -587,7 +587,7 @@ with projects_tab:
                 </ul>
             ''',
             "tags": ["C", "POSIX Threads", "IPC"],
-            "link": "https://github.com/yourusername/the-cytadel"
+            "link": "https://github.com/Dmeymen/TheCytadel"
         },
         {
             "title": "Object-Oriented Programming - Nude Eye Project",
@@ -615,7 +615,7 @@ with projects_tab:
                 </ul>
             ''',
             "tags": ["Java", "JSON", "UML", "Layered Architecture"],
-            "link": "#"
+            "link": "https://github.com/Dmeymen/Nude_Eye_Project"
         },
         {
             "title": "Databases creation - Olympics Database",
