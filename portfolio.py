@@ -89,6 +89,32 @@ st.markdown("""
         box-shadow: 0 5px 15px #FC801D;
     }
 
+    /* Style Streamlit download button to match .social-btn */
+    [data-testid="stDownloadButton"] > button,
+    [data-testid="stDownloadButton"] button {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        padding: 0.75rem 1.5rem !important;
+        background-color: #771F02 !important;
+        color: #C5C3B9 !important;
+        text-decoration: none !important;
+        border-radius: 5px !important;
+        transition: all 0.3s ease !important;
+        border: 2px solid #771F02 !important;
+        font-weight: 500 !important;
+        box-shadow: none !important;
+    }
+
+    [data-testid="stDownloadButton"] > button:hover,
+    [data-testid="stDownloadButton"] button:hover {
+        background-color: #FC801D !important;
+        border-color: #b88153 !important;
+        transform: translateY(-5px) !important;
+        box-shadow: 0 5px 15px #FC801D !important;
+        cursor: pointer !important;
+    }
+
     [data-testid="stTabs"] [data-baseweb="tab-list"] {
         gap: 0.35rem;
         border-bottom: 1px solid rgba(119, 31, 2, 0.45);
