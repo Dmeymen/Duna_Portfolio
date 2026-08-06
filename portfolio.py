@@ -89,6 +89,33 @@ st.markdown("""
         box-shadow: 0 5px 15px #FC801D;
     }
 
+    .social-icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: #771F02;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 2px solid #771F02;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .social-icon-btn img {
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+
+    .social-icon-btn:hover {
+        background-color: #FC801D;
+        border-color: #b88153;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px #FC801D;
+    }
+
     /* Style Streamlit download button to match .social-btn */
     [data-testid="stDownloadButton"] > button,
     [data-testid="stDownloadButton"] button {
@@ -483,6 +510,30 @@ def render_icon_box(image_path: str, alt_text: str) -> str:
 def render_icon_grid(items: list[tuple[str, str]]) -> None:
     html = '<div class="icon-grid">' + "".join(render_icon_box(path, label) for path, label in items) + "</div>"
     st.markdown(html, unsafe_allow_html=True)
+
+
+def render_social_icons() -> None:
+    social_items = [
+        ("assets/github-logo.svg", "https://github.com/Dmeymen"),
+        ("assets/linkedin-logo.svg", "https://www.linkedin.com/in/dunameyamendoza"),
+        ("assets/x-logo.svg", "https://x.com/Cynmeya_27"),
+        ("assets/gmail-logo.svg", "mailto:dmeyamendoza@gmail.com"),
+    ]
+    
+    html = '<div class="social-links">'
+    for icon_path, link in social_items:
+        path = Path(icon_path)
+        if path.exists():
+            image_b64 = base64.b64encode(path.read_bytes()).decode("utf-8")
+            html += f'<a href="{link}" class="social-icon-btn" target="_blank"><img src="data:image/svg+xml;base64,{image_b64}" alt="Social icon"/></a>'
+        else:
+            html += f'<a href="{link}" class="social-icon-btn" target="_blank">•</a>'
+    html += '</div>'
+    st.markdown(html, unsafe_allow_html=True)
+
+
+# Social Media Links at the top of the page
+render_social_icons()
 
 about_tab, projects_tab = st.tabs(["About / Skills", "Projects"])
 
