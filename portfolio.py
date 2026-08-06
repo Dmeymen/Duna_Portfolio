@@ -506,6 +506,34 @@ def render_icon_box(image_path: str, alt_text: str) -> str:
     image_b64 = base64.b64encode(path.read_bytes()).decode("utf-8")
     return f'<div class="icon-box"><img src="data:{mime_type};base64,{image_b64}" alt="{alt_text}"></div>'
 
+def render_icon_grid(items: list[tuple[str, str]]) -> None:
+    html = '<div class="icon-grid">' + "".join(render_icon_box(path, label) for path, label in items) + "</div>"
+    st.markdown(html, unsafe_allow_html=True)
+
+
+def render_social_icons() -> None:
+    social_items = [
+        ("assets/github-logo.svg", "https://github.com/Dmeymen"),
+        ("assets/linkedin-logo.svg", "https://www.linkedin.com/in/dunameyamendoza"),
+        ("assets/x-logo.svg", "https://x.com/Cynmeya_27"),
+        ("assets/gmail-logo.svg", "mailto:dmeyamendoza@gmail.com"),
+    ]
+
+    html = '<div class="social-links">'
+    for icon_path, link in social_items:
+        path = Path(icon_path)
+        if path.exists():
+            image_b64 = base64.b64encode(path.read_bytes()).decode("utf-8")
+            html += f'<a href="{link}" class="social-icon-btn" target="_blank"><img src="data:image/svg+xml;base64,{image_b64}" alt="Social icon"/></a>'
+        else:
+            html += f'<a href="{link}" class="social-icon-btn" target="_blank">•</a>'
+    html += '</div>'
+    st.markdown(html, unsafe_allow_html=True)
+
+
+# Social Media Links at the top of the page
+render_social_icons()
+
 about_tab, projects_tab = st.tabs(["About / Skills", "Projects"])
 
 with about_tab:
