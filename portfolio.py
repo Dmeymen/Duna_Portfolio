@@ -538,7 +538,7 @@ about_tab, projects_tab = st.tabs(["About / Skills", "Projects"])
 
 with about_tab:
     # About section
-    st.markdown('<h2 class="section-title">About Me</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="section-title">Hi, I\'m <span class="accent-highlight" style="font-weight:700; color: #771F02;">Duna</span></h2>', unsafe_allow_html=True)
     col1, col2 = st.columns([1.5, 1])
 
     with col1:
@@ -552,12 +552,12 @@ with about_tab:
                     <span class="accent-highlight" style="font-weight:700; color: #771F02;">Inspired</span> by art.
                 </p>
                 <p>
-                Hi Everyone! I'm Duna Meya from Barcelona.
-                I'm a junior engineer pursuing a bachelor's degree in AI & Data Science engineering
-                at LaSalle Campus University Ramon Llull.
+                Hi Everyone! I'm Duna Meya from Barcelona.<br>
+                I'm a junior engineer pursuing a bachelor's degree in AI & Data Science engineering at LaSalle Campus University Ramon Llull.<br>
+                I'm curious about technological innovation, and I enjoy exploring the intersection of science, art, and technology.<br>
+                My passion lies in creating solutions that are not only functional but also new and efficient.
                 </p>
                 <div style="margin-top: 1rem;">
-                    <!-- Download handled by Streamlit button below -->
                 </div>
 
                 """
@@ -582,7 +582,7 @@ with about_tab:
             "Additional information:\n\n"
             "🍪 **Location**: Barcelona, Spain\n\n"
             "🍰 **Education**: Bachelor's degree in AI & Data Science engineering at LaSalle Campus University Ramon Llull\n\n"
-            "🧋 **Interest**: Sketching, Travelling, Graphic Design"
+            "🧋 **Interest**: Sketching, Travelling, Graphic Design, Space"
         )
 
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
